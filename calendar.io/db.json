@@ -1,0 +1,90 @@
+{
+  "monitor": [
+    {
+      "id": 1,
+      "name": "Renann",
+      "senha": "qwert",
+      "aulas": [
+        {
+          "dia": "20/10/2022",
+          "aluno": "Andre",
+          "horário": "12:40",
+          "tema_aula": "Reforço de matemática"
+        },
+        {
+          "dia": "21/10/2022",
+          "aluno": "Fernando",
+          "horário": "22:40",
+          "tema_aula": "Reforço de inglês"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Robson",
+      "senha": "qwert",
+      "aulas": [
+        {
+          "dia": "20/10/2022",
+          "aluno": "Andre",
+          "horário": "12:40",
+          "tema_aula": "Reforço de matemática"
+        },
+        {
+          "dia": "21/10/2022",
+          "aluno": "Fernando",
+          "horário": "22:40",
+          "tema_aula": "Reforço de inglês"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Paulo",
+      "senha": "qwert",
+      "aulas": [
+        {
+          "dia": "20/10/2022",
+          "aluno": "Andre",
+          "horário": "12:40",
+          "tema_aula": "Reforço de matemática"
+        },
+        {
+          "dia": "21/10/2022",
+          "aluno": "Fernando",
+          "horário": "22:40",
+          "tema_aula": "Reforço de inglês"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Paulo",
+      "senha": "qwert",
+      "aulas": [
+        {
+          "dia": "20/10/2022",
+          "aluno": "Andre",
+          "horário": "12:40",
+          "tema_aula": "Reforço de matemática"
+        },
+        {
+          "dia": "21/10/2022",
+          "aluno": "Fernando",
+          "horário": "22:40",
+          "tema_aula": "Reforço de Geografia"
+        }
+      ]
+    }
+  ],
+  "alunos": [
+    {
+      "id": 1,
+      "nome": "Andre"
+    },
+    {
+      "id": 1,
+      "nome": "Fernando"
+    }
+  ]
+}
