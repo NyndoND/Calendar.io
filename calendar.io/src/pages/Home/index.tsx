@@ -1,11 +1,14 @@
 import {
-  Container
+  Container,
+  Title,
+  ButtonContainer
 } from './styles';
 
 import { useDefaultContext } from '../../Context/contextControl';
 
 import { api } from '../../servicesAPI/api';
 import { Link } from 'react-router-dom';
+import { DefaultButton } from '../../Components/DefaultButton';
 
 export default function Home() {
 
@@ -40,9 +43,26 @@ export default function Home() {
   }
   return (
     <Container>
-      <Link to={'/monitor'} onClick={handleCreateMonitor}>
-        Home page
-      </Link>
+      <Title>
+        Calendar.io
+      </Title>
+      <ButtonContainer>
+          <DefaultButton
+            textButton='Monitor'
+            onClick={() => { }}
+            navigationTo={"/monitor"}
+            minWidth={"200px"}
+            minHeight={"50px"}
+          />
+
+          <DefaultButton
+            textButton='Alunos'
+            onClick={() => { }}
+            navigationTo={"/monitor"}
+            minWidth={"200px"}
+            minHeight={"50px"}
+          />
+      </ButtonContainer>
     </Container>
   )
 }
