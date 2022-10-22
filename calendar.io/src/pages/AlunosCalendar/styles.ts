@@ -1,8 +1,9 @@
 import styled from "styled-components";
+import { theme} from "../../theme";
 
 export const Container = styled.div`
   display: flex;
-  //flex-direction: column;
+  
   width: 100vw;
   height: 100vh;
 
@@ -22,8 +23,6 @@ export const ContainerCard = styled.div`
   margin: 40px 20px;
   border-radius: 30px;
   box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.2), 0 4px 7px 0 rgba(0, 0, 0, 0.19);
-
-  //background-color: beige;
 `;
 
 export const Calendar = styled.div`
@@ -46,7 +45,7 @@ export const Title = styled.div`
 
   border-radius: 20px;
 
-  background-color: aqua;
+  background-color: ${theme.colors.first};
 `;
 
 
@@ -75,7 +74,7 @@ export const LessonsCard = styled.div`
   border-radius: 20px;
   box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.2), 0 4px 7px 0 rgba(0, 0, 0, 0.19);
 
-  background-color: beige;
+  background-color: ${theme.colors.second};
 
 `;
 

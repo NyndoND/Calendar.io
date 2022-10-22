@@ -9,10 +9,10 @@ import {
   InputPassword,
   ButtonConteiner
 } from './styles';
-import { v4 as uuidv4 } from 'uuid';
 import { useState } from 'react';
 import { useDefaultContext } from '../../Context/contextControl';
 import { useNavigate } from 'react-router-dom';
+import {theme} from "../../theme";
 
 
 export default function LoginMonitor() {
@@ -77,7 +77,6 @@ export default function LoginMonitor() {
             <DefaultButton
               onClick={() => LoginMonitor()}
               textButton={"Login"}
-              backgrounColor={"green"}
               minHeight={"100%"}
               minWidth={"100%"}
             />
@@ -85,7 +84,8 @@ export default function LoginMonitor() {
               navigationTo='/'
               onClick={() => { }}
               textButton={"Cancel"}
-              backgrounColor={"red"}
+              backgrounColor={theme.colors.third}
+              hoverBackgrounColor={theme.colors.fifth}
               minHeight={"100%"}
               minWidth={"100%"}
             />
@@ -122,7 +122,8 @@ export default function LoginMonitor() {
               navigationTo='/'
               onClick={() => { }}
               textButton={"Cancel"}
-              backgrounColor={"red"}
+              backgrounColor={theme.colors.third}
+              hoverBackgrounColor={theme.colors.fifth}
               minHeight={"100%"}
               minWidth={"100%"}
             />

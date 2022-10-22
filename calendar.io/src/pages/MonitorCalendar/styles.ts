@@ -1,8 +1,9 @@
 import styled from "styled-components";
+import { theme} from '../../theme';
 
 export const Container = styled.div`
   display: flex;
-  //flex-direction: column;
+
   width: 100vw;
   height: 100vh;
 
@@ -19,7 +20,6 @@ export const ContainerCard = styled.div`
   border-radius: 30px;
   box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.2), 0 4px 7px 0 rgba(0, 0, 0, 0.19);
 
-  //background-color: beige;
 `;
 
 
@@ -35,7 +35,7 @@ export const Title = styled.div`
 
   border-radius: 20px;
 
-  background-color: aqua;
+  background-color: ${theme.colors.first};
 `;
 
 
@@ -47,7 +47,6 @@ export const SundayColumn = styled.div`
 
   align-items: center;
 
-  //background-color: aquamarine;
 `;
 
 
@@ -65,7 +64,7 @@ export const LessonsCard = styled.div`
   box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.2), 0 4px 7px 0 rgba(0, 0, 0, 0.19);
 
 
-  background-color: beige;
+  background-color: ${theme.colors.second};
 
 `;
 
@@ -86,6 +85,4 @@ export const ButtonContainer = styled.div`
 
   align-items: center;
   justify-content: center;
-  //background-color: #000;
-
 `;

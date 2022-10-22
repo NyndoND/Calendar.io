@@ -16,145 +16,7 @@ import { useEffect, useState } from 'react';
 import { IWeekLessons, ILessons, Imonitor } from '../../models/modelsApi';
 import { useNavigate } from 'react-router-dom';
 
-// const teste = {
-
-// }
-
-// const weekDays = [
-//   {
-//     day: "Domingo",
-//     lessons: [
-//       {
-//         id: uuidv4(),
-//         lessonData: "20/10/22",
-//         lessonHour: "8:00",
-//         studentName: "Renann",
-//         lessonDescription: "Reforço de matemática"
-//       },
-//       {
-//         id: uuidv4(),
-//         lessonData: "20/10/22",
-//         lessonHour: "8:00",
-//         studentName: "Renann",
-//         lessonDescription: "Reforço de Geografia"
-//       },
-//     ]
-//   },
-//   {
-//     day: "Segunda",
-//     lessons: [
-//       {
-//         id: uuidv4(),
-//         lessonData: "20/10/22",
-//         lessonHour: "8:00",
-//         studentName: "Renann",
-//         lessonDescription: "Reforço de matemática"
-//       },
-//       {
-//         id: uuidv4(),
-//         lessonData: "20/10/22",
-//         lessonHour: "8:00",
-//         studentName: "Andre",
-//         lessonDescription: "Reforço de matemática"
-//       },
-//     ]
-//   },
-//   {
-//     day: "Terça",
-//     lessons: [
-//       {
-//         id: uuidv4(),
-//         lessonData: "20/10/22",
-//         lessonHour: "8:00",
-//         studentName: "Renann",
-//         lessonDescription: "Reforço de matemática"
-//       },
-//       {
-//         id: uuidv4(),
-//         lessonData: "20/10/22",
-//         lessonHour: "8:00",
-//         studentName: "Renann",
-//         lessonDescription: "Reforço de matemática"
-//       },
-//     ]
-//   },
-//   {
-//     day: "quarta",
-//     lessons: [
-//       {
-//         id: uuidv4(),
-//         lessonData: "20/10/22",
-//         lessonHour: "8:00",
-//         studentName: "Renann",
-//         lessonDescription: "Reforço de matemática"
-//       },
-//       {
-//         id: uuidv4(),
-//         lessonData: "20/10/22",
-//         lessonHour: "8:00",
-//         studentName: "Renann",
-//         lessonDescription: "Reforço de matemática"
-//       },
-//     ]
-//   },
-//   {
-//     day: "Quinta",
-//     lessons: [
-//       {
-//         id: uuidv4(),
-//         lessonData: "20/10/22",
-//         lessonHour: "8:00",
-//         studentName: "Renann",
-//         lessonDescription: "Reforço de matemática"
-//       },
-//       {
-//         id: uuidv4(),
-//         lessonData: "20/10/22",
-//         lessonHour: "8:00",
-//         studentName: "Renann",
-//         lessonDescription: "Reforço de matemática"
-//       },
-//     ]
-//   },
-//   {
-//     day: "Sexta",
-//     lessons: [
-//       {
-//         id: uuidv4(),
-//         lessonData: "20/10/22",
-//         lessonHour: "8:00",
-//         studentName: "Renann",
-//         lessonDescription: "Reforço de matemática"
-//       },
-//       {
-//         id: uuidv4(),
-//         lessonData: "20/10/22",
-//         lessonHour: "8:00",
-//         studentName: "Renann",
-//         lessonDescription: "Reforço de matemática"
-//       },
-//     ]
-//   },
-//   {
-//     day: "Sabádo",
-//     lessons: [
-//       {
-//         id: uuidv4(),
-//         lessonData: "20/10/22",
-//         lessonHour: "8:00",
-//         studentName: "Renann",
-//         lessonDescription: "Reforço de matemática"
-//       },
-//       {
-//         id: uuidv4(),
-//         lessonData: "20/10/22",
-//         lessonHour: "8:00",
-//         studentName: "Renann",
-//         lessonDescription: "Reforço de matemática"
-//       },
-//     ]
-//   }
-// ]
+import {theme} from "../../theme";
 
 export default function MonitorCalendar() {
 
@@ -264,7 +126,8 @@ export default function MonitorCalendar() {
                           minHeight={"20px"}
                           minWidth={"40px"}
                           fontSize={"10px"}
-                          backgrounColor={"red"}
+                          backgrounColor={theme.colors.third}
+                          hoverBackgrounColor={theme.colors.fifth}
                         />
                       </ButtonContainer>
                     </LessonsCard>
@@ -278,7 +141,8 @@ export default function MonitorCalendar() {
             onClick={handleDeleteMonitor}
             textButton={"Deletar perfil"}
             fontSize='30px'
-            backgrounColor='red'
+            backgrounColor={theme.colors.fifth}
+            hoverBackgrounColor={theme.colors.third}
           />
       </ContainerCard>
     </Container>

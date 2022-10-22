@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import {theme} from "../../theme";
 
 interface IButtonContainer {
   minWidth?: string;
@@ -23,10 +24,10 @@ margin: 10px;
 align-items: center;
 justify-content: center;
 
-background-color: ${({backgrounColor})=> backgrounColor ? backgrounColor : "beige"};
+background-color: ${({backgrounColor})=> backgrounColor ? backgrounColor : theme.colors.fourth};
 border-radius: 20px;
 :hover{
-    background-color: ${({hoverBackgrounColor})=> hoverBackgrounColor ? hoverBackgrounColor : "aqua"};
+    background-color: ${({hoverBackgrounColor})=> hoverBackgrounColor ? hoverBackgrounColor : theme.colors.first};
     cursor: pointer;
   }
 
