@@ -107,10 +107,10 @@ export const Select = styled.select`
   border-radius: 10px;
   border: 0.5px solid #00000029;
 
-  color: #707070;
+  color: black;
   text-align: center;
   font-family: "Montserrat", Times, serif;
-  font-size: 0.7vw;
+  font-size: 1vw;
   font-weight: bold;
 `
 

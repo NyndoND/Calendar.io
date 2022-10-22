@@ -162,14 +162,51 @@ export default function MonitorCalendar() {
   const [weekLessons, setWeekLessons] = useState<IWeekLessons[]>([] as IWeekLessons[]);
 
 
-  function handleTeste() {
-    //Nice deu certo
-    //console.log(loggedMonitorData)
+  function handleDeleteLesson(id: string, day: string) {
+    const newWeekLessons = weekLessons.map((weekDay) => {
+      if (weekDay.day === day) {
+        const newLessons = weekDay.lessons.filter(lesson => lesson.id !== id);
+        return {
+          day: weekDay.day,
+          lessons: newLessons
+        }
+      }
+      return weekDay;
+    })
+
+    setWeekLessons(newWeekLessons);
   }
 
-  useEffect(()=>{
+  function handleConfirmLesson(id: string, day: string){
+    const newWeekLessons = weekLessons.map((weekDay) => {
+      if (weekDay.day === day) {
+        const newLessons = weekDay.lessons.map((lesson) => {
+          if(lesson.id === id){
+            return {
+              id: lesson.id,
+              lessonData: lesson.lessonData,
+              lessonDescription: lesson.lessonDescription,
+              lessonHour: lesson.lessonHour,
+              studentName: lesson.studentName,
+              status: 'confirmed'
+            }
+          }
+          return lesson;
+        });
+        return {
+          day: weekDay.day,
+          lessons: newLessons
+        }
+      }
+      return weekDay;
+    })
+
+    setWeekLessons(newWeekLessons);
+  }
+
+  useEffect(() => {
     setWeekLessons(loggedMonitorData.allLessons)
-  },[loggedMonitorData])
+  }, [loggedMonitorData])
 
   return (
     <Container>
@@ -179,7 +216,6 @@ export default function MonitorCalendar() {
             return (
               <SundayColumn key={index}>
                 <Title> {day.day} </Title>
-
                 {day.lessons.map((lesson) => {
                   return (
                     <LessonsCard>
@@ -192,7 +228,7 @@ export default function MonitorCalendar() {
                       <ButtonContainer>
                         <DefaultButton
                           textButton='Confirm'
-                          onClick={handleTeste}
+                          onClick={()=> handleConfirmLesson(lesson.id, day.day)}
                           minHeight={"20px"}
                           minWidth={"40px"}
                           fontSize={"10px"}
@@ -200,7 +236,7 @@ export default function MonitorCalendar() {
                         />
                         <DefaultButton
                           textButton='Cancel'
-                          onClick={() => { }}
+                          onClick={() => handleDeleteLesson(lesson.id, day.day)}
                           minHeight={"20px"}
                           minWidth={"40px"}
                           fontSize={"10px"}

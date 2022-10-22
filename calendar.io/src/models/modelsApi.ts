@@ -11,11 +11,13 @@ export interface IWeekLessons {
 }
 
 export interface ILessons {
+
   id: string;
   lessonData: string;
   lessonHour: string;
   studentName: string;
   lessonDescription: string;
+  status: string;
 }
 
 export interface Ialunos {
