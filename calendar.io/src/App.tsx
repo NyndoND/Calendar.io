@@ -8,6 +8,8 @@ import {
 import Home from './pages/Home';
 import MonitorCalendar from './pages/MonitorCalendar';
 import ErrorPage from './pages/ErrorPage';
+import AlunosCalendar from './pages/AlunosCalendar';
+import LoginMonitor from './pages/LoginMonitor';
 
 const router = createBrowserRouter([
   {
@@ -19,15 +21,21 @@ const router = createBrowserRouter([
     path: "/monitor",
     element: <MonitorCalendar />,
   },
+  {
+    path: "/alunos",
+    element: <AlunosCalendar />,
+  },
+  {
+    path: "/loginMonitor",
+    element: <LoginMonitor />,
+  },
 ]);
 
 //talvez adicionar os métodos de data entre as rotas
 function App() {
   //console.log(allAlunos);
   return (
-    
-      <RouterProvider router={router} />
-    
+    <RouterProvider router={router} />
   );
 }
 

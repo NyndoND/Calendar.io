@@ -1,3 +1,4 @@
+
 import { DefaultButton } from '../../Components/DefaultButton';
 import {
   Container,
@@ -7,17 +8,18 @@ import {
   LessonsCard,
   LessonData,
   LessonDescription,
-  ButtonContainer,
+  ChangeMonitor,
+  Select,
+  Option,
+  Calendar
 } from './styles';
 import { v4 as uuidv4 } from 'uuid';
-import { useDefaultContext } from '../../Context/contextControl';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
-import { IWeekLessons, ILessons } from '../../models/modelsApi';
 
-const teste = {
-
-}
+const monitors = [
+  "Renann", "Robson"
+]
 
 const weekDays = [
   {
@@ -155,27 +157,39 @@ const weekDays = [
   }
 ]
 
-export default function MonitorCalendar() {
-
-  const { loggedMonitorData } = useDefaultContext();
-
-  const [weekLessons, setWeekLessons] = useState<IWeekLessons[]>([] as IWeekLessons[]);
+export default function AlunosCalendar() {
 
 
-  function handleTeste() {
-    //Nice deu certo
-    //console.log(loggedMonitorData)
-  }
-
-  useEffect(()=>{
-    setWeekLessons(loggedMonitorData.allLessons)
-  },[loggedMonitorData])
+  const [selectedMonitor, setSelectedMonitor] = useState("-1");
 
   return (
     <Container>
       <ContainerCard>
+        <ChangeMonitor>
+          <Select
+            value={selectedMonitor}
+            onChange={(event) => setSelectedMonitor(event.target.value)}
+            style={{ paddingLeft: "5%" }}
+          >
+            <Option value="-1" disabled selected>
+              Selecione um monitor
+            </Option>
+            {
+              monitors.map((monitor) => {
+                return (
+                  <Option value={monitor}>
+                    {monitor}
+                  </Option>
+                )
+              })
+            }
+          </Select>
+        </ChangeMonitor>
+        <Calendar>
+
+        
         {
-          weekLessons.map((day, index) => {
+          weekDays.map((day, index) => {
             return (
               <SundayColumn key={index}>
                 <Title> {day.day} </Title>
@@ -189,24 +203,6 @@ export default function MonitorCalendar() {
                       <LessonDescription>
                         {lesson.lessonHour} - {lesson.studentName} - {lesson.lessonDescription}
                       </LessonDescription>
-                      <ButtonContainer>
-                        <DefaultButton
-                          textButton='Confirm'
-                          onClick={handleTeste}
-                          minHeight={"20px"}
-                          minWidth={"40px"}
-                          fontSize={"10px"}
-                          backgrounColor={"green"}
-                        />
-                        <DefaultButton
-                          textButton='Cancel'
-                          onClick={() => { }}
-                          minHeight={"20px"}
-                          minWidth={"40px"}
-                          fontSize={"10px"}
-                          backgrounColor={"red"}
-                        />
-                      </ButtonContainer>
                     </LessonsCard>
                   )
                 })}
@@ -214,6 +210,7 @@ export default function MonitorCalendar() {
             )
           })
         }
+        </Calendar>
       </ContainerCard>
     </Container>
   )

@@ -1,18 +1,24 @@
 export interface Imonitor {
-  id: number;
+  id: string;
   name: string;
   senha: string;
-  aulas: Iaulas[];
+  allLessons: IWeekLessons[];
 }
 
-export interface Iaulas {
-  dia: string;
-  aluno: string;
-  horario: string;
-  tema_aula: string;
+export interface IWeekLessons {
+  day: string;
+  lessons: ILessons[]
+}
+
+export interface ILessons {
+  id: string;
+  lessonData: string;
+  lessonHour: string;
+  studentName: string;
+  lessonDescription: string;
 }
 
 export interface Ialunos {
-  id: number;
+  id: string;
   nome: string;
 }

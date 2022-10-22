@@ -41,6 +41,7 @@ export default function Home() {
   function handleCreateAluno() {
 
   }
+
   return (
     <Container>
       <Title>
@@ -50,7 +51,7 @@ export default function Home() {
           <DefaultButton
             textButton='Monitor'
             onClick={() => { }}
-            navigationTo={"/monitor"}
+            navigationTo={"/loginMonitor"}
             minWidth={"200px"}
             minHeight={"50px"}
           />
@@ -58,7 +59,7 @@ export default function Home() {
           <DefaultButton
             textButton='Alunos'
             onClick={() => { }}
-            navigationTo={"/monitor"}
+            navigationTo={"/alunos"}
             minWidth={"200px"}
             minHeight={"50px"}
           />

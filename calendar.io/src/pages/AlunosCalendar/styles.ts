@@ -12,8 +12,12 @@ export const Container = styled.div`
 
 export const ContainerCard = styled.div`
   display: flex;
+  flex-direction: column;
   width: calc(100% - 20px) ;
   height: calc(100% - 40px);
+
+  align-items: center;
+  justify-content: center;
 
   margin: 40px 20px;
   border-radius: 30px;
@@ -21,6 +25,13 @@ export const ContainerCard = styled.div`
 
   //background-color: beige;
 `;
+
+export const Calendar = styled.div`
+  display: flex;
+  width: 100%;
+  height: 90%;
+`;
+
 
 
 export const Title = styled.div`
@@ -64,7 +75,6 @@ export const LessonsCard = styled.div`
   border-radius: 20px;
   box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.2), 0 4px 7px 0 rgba(0, 0, 0, 0.19);
 
-
   background-color: beige;
 
 `;
@@ -81,12 +91,30 @@ export const LessonDescription = styled.div`
 
 
 `;
-export const ButtonContainer = styled.div`
+export const ChangeMonitor = styled.div`
   display: flex;
-
-  align-items: center;
-  justify-content: center;
+  width: 97%;
+  height: 5%;
   //background-color: #000;
 
 `;
 
+export const Select = styled.select`
+  display: flex;
+  width: 100%;
+  height: 100%;
+
+  border-radius: 10px;
+  border: 0.5px solid #00000029;
+
+  color: #707070;
+  text-align: center;
+  font-family: "Montserrat", Times, serif;
+  font-size: 0.7vw;
+  font-weight: bold;
+`
+
+export const Option = styled.option`
+  width: 100%;
+  height: 30%;
+`;
