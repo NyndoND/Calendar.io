@@ -15,146 +15,6 @@ import { useDefaultContext } from '../../Context/contextControl';
 import { useNavigate } from 'react-router-dom';
 
 
-// const teste = {
-
-// }
-
-// const weekDays = [
-//   {
-//     day: "Domingo",
-//     lessons: [
-//       {
-//         id: uuidv4(),
-//         lessonData: "20/10/22",
-//         lessonHour: "8:00",
-//         studentName: "Renann",
-//         lessonDescription: "Reforço de matemática"
-//       },
-//       {
-//         id: uuidv4(),
-//         lessonData: "20/10/22",
-//         lessonHour: "8:00",
-//         studentName: "Renann",
-//         lessonDescription: "Reforço de Geografia"
-//       },
-//     ]
-//   },
-//   {
-//     day: "Segunda",
-//     lessons: [
-//       {
-//         id: uuidv4(),
-//         lessonData: "20/10/22",
-//         lessonHour: "8:00",
-//         studentName: "Renann",
-//         lessonDescription: "Reforço de matemática"
-//       },
-//       {
-//         id: uuidv4(),
-//         lessonData: "20/10/22",
-//         lessonHour: "8:00",
-//         studentName: "Andre",
-//         lessonDescription: "Reforço de matemática"
-//       },
-//     ]
-//   },
-//   {
-//     day: "Terça",
-//     lessons: [
-//       {
-//         id: uuidv4(),
-//         lessonData: "20/10/22",
-//         lessonHour: "8:00",
-//         studentName: "Renann",
-//         lessonDescription: "Reforço de matemática"
-//       },
-//       {
-//         id: uuidv4(),
-//         lessonData: "20/10/22",
-//         lessonHour: "8:00",
-//         studentName: "Renann",
-//         lessonDescription: "Reforço de matemática"
-//       },
-//     ]
-//   },
-//   {
-//     day: "quarta",
-//     lessons: [
-//       {
-//         id: uuidv4(),
-//         lessonData: "20/10/22",
-//         lessonHour: "8:00",
-//         studentName: "Renann",
-//         lessonDescription: "Reforço de matemática"
-//       },
-//       {
-//         id: uuidv4(),
-//         lessonData: "20/10/22",
-//         lessonHour: "8:00",
-//         studentName: "Renann",
-//         lessonDescription: "Reforço de matemática"
-//       },
-//     ]
-//   },
-//   {
-//     day: "Quinta",
-//     lessons: [
-//       {
-//         id: uuidv4(),
-//         lessonData: "20/10/22",
-//         lessonHour: "8:00",
-//         studentName: "Renann",
-//         lessonDescription: "Reforço de matemática"
-//       },
-//       {
-//         id: uuidv4(),
-//         lessonData: "20/10/22",
-//         lessonHour: "8:00",
-//         studentName: "Renann",
-//         lessonDescription: "Reforço de matemática"
-//       },
-//     ]
-//   },
-//   {
-//     day: "Sexta",
-//     lessons: [
-//       {
-//         id: uuidv4(),
-//         lessonData: "20/10/22",
-//         lessonHour: "8:00",
-//         studentName: "Renann",
-//         lessonDescription: "Reforço de matemática"
-//       },
-//       {
-//         id: uuidv4(),
-//         lessonData: "20/10/22",
-//         lessonHour: "8:00",
-//         studentName: "Renann",
-//         lessonDescription: "Reforço de matemática"
-//       },
-//     ]
-//   },
-//   {
-//     day: "Sabádo",
-//     lessons: [
-//       {
-//         id: uuidv4(),
-//         lessonData: "20/10/22",
-//         lessonHour: "8:00",
-//         studentName: "Renann",
-//         lessonDescription: "Reforço de matemática"
-//       },
-//       {
-//         id: uuidv4(),
-//         lessonData: "20/10/22",
-//         lessonHour: "8:00",
-//         studentName: "Renann",
-//         lessonDescription: "Reforço de matemática"
-//       },
-//     ]
-//   }
-// ]
-
 export default function LoginMonitor() {
 
   const navigate = useNavigate();
@@ -166,7 +26,7 @@ export default function LoginMonitor() {
   const [inputPasswordRegister, setInputPasswordRegister] = useState("");
   const [inputConfirmPassword, setInputConfirmPassword] = useState("");
 
-  const { getMonitorNamePassword, setLoggedMonitor } = useDefaultContext();
+  const { getMonitorNamePassword, setLoggedMonitor, registerMonitor } = useDefaultContext();
 
   async function LoginMonitor() {
     const response = await getMonitorNamePassword();
@@ -176,13 +36,24 @@ export default function LoginMonitor() {
           setLoggedMonitor(monitor.name);
           navigate("/monitor");
           return monitor;
-        } 
-      } 
+        }
+      }
     })
-    if(monitor.length !== 1){
+    if (monitor.length !== 1) {
       console.log(monitor)
       alert("Nome ou senha incorretos, por favor tente novamente")
-    }    
+    }
+  }
+
+  async function handleRegisterMonitor() {
+
+    if (inputPasswordRegister === inputConfirmPassword) {
+      navigate("/monitor");
+      registerMonitor(inputNameRegister, inputPasswordRegister);
+      
+    } else {
+      alert("As senhas não coincidem")
+    }
   }
 
   return (
@@ -241,8 +112,8 @@ export default function LoginMonitor() {
           />
           <ButtonConteiner>
             <DefaultButton
-              onClick={() => { }}
-              textButton={"Login"}
+              onClick={handleRegisterMonitor}
+              textButton={"Registrar"}
               backgrounColor={"green"}
               minHeight={"100%"}
               minWidth={"100%"}

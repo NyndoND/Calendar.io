@@ -11,9 +11,8 @@ export interface IWeekLessons {
 }
 
 export interface ILessons {
-
   id: string;
-  lessonData: string;
+  lessonDate: string;
   lessonHour: string;
   studentName: string;
   lessonDescription: string;

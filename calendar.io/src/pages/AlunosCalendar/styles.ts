@@ -54,7 +54,7 @@ export const SundayColumn = styled.div`
   display: flex;
   flex-direction: column;
 
-  width: calc(100% / 7);
+  width: calc(100% / 8);
 
   align-items: center;
 
@@ -118,3 +118,34 @@ export const Option = styled.option`
   width: 100%;
   height: 30%;
 `;
+
+export const InputNewLesson = styled.div` 
+  margin-top: 10px;
+  width: calc(100% * 1/8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const InputDate = styled.input`
+  margin: 10px;
+`;
+
+export const InputHour = styled.input`
+  margin: 10px;
+`;
+
+export const InputStudentName = styled.input`
+  margin: 10px;
+`;
+
+export const InputLessonDescription = styled.input`
+  margin: 10px;
+`;
+
+export const SelectWeekDay = styled.select`
+  margin: 10px;
+  width: 80%;
+`;
+
+export const OptionWeekDay = styled.option``;

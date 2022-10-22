@@ -13,151 +13,154 @@ import { v4 as uuidv4 } from 'uuid';
 import { useDefaultContext } from '../../Context/contextControl';
 import { useEffect, useState } from 'react';
 
-import { IWeekLessons, ILessons } from '../../models/modelsApi';
+import { IWeekLessons, ILessons, Imonitor } from '../../models/modelsApi';
+import { useNavigate } from 'react-router-dom';
 
-const teste = {
+// const teste = {
 
-}
+// }
 
-const weekDays = [
-  {
-    day: "Domingo",
-    lessons: [
-      {
-        id: uuidv4(),
-        lessonData: "20/10/22",
-        lessonHour: "8:00",
-        studentName: "Renann",
-        lessonDescription: "Reforço de matemática"
-      },
-      {
-        id: uuidv4(),
-        lessonData: "20/10/22",
-        lessonHour: "8:00",
-        studentName: "Renann",
-        lessonDescription: "Reforço de Geografia"
-      },
-    ]
-  },
-  {
-    day: "Segunda",
-    lessons: [
-      {
-        id: uuidv4(),
-        lessonData: "20/10/22",
-        lessonHour: "8:00",
-        studentName: "Renann",
-        lessonDescription: "Reforço de matemática"
-      },
-      {
-        id: uuidv4(),
-        lessonData: "20/10/22",
-        lessonHour: "8:00",
-        studentName: "Andre",
-        lessonDescription: "Reforço de matemática"
-      },
-    ]
-  },
-  {
-    day: "Terça",
-    lessons: [
-      {
-        id: uuidv4(),
-        lessonData: "20/10/22",
-        lessonHour: "8:00",
-        studentName: "Renann",
-        lessonDescription: "Reforço de matemática"
-      },
-      {
-        id: uuidv4(),
-        lessonData: "20/10/22",
-        lessonHour: "8:00",
-        studentName: "Renann",
-        lessonDescription: "Reforço de matemática"
-      },
-    ]
-  },
-  {
-    day: "quarta",
-    lessons: [
-      {
-        id: uuidv4(),
-        lessonData: "20/10/22",
-        lessonHour: "8:00",
-        studentName: "Renann",
-        lessonDescription: "Reforço de matemática"
-      },
-      {
-        id: uuidv4(),
-        lessonData: "20/10/22",
-        lessonHour: "8:00",
-        studentName: "Renann",
-        lessonDescription: "Reforço de matemática"
-      },
-    ]
-  },
-  {
-    day: "Quinta",
-    lessons: [
-      {
-        id: uuidv4(),
-        lessonData: "20/10/22",
-        lessonHour: "8:00",
-        studentName: "Renann",
-        lessonDescription: "Reforço de matemática"
-      },
-      {
-        id: uuidv4(),
-        lessonData: "20/10/22",
-        lessonHour: "8:00",
-        studentName: "Renann",
-        lessonDescription: "Reforço de matemática"
-      },
-    ]
-  },
-  {
-    day: "Sexta",
-    lessons: [
-      {
-        id: uuidv4(),
-        lessonData: "20/10/22",
-        lessonHour: "8:00",
-        studentName: "Renann",
-        lessonDescription: "Reforço de matemática"
-      },
-      {
-        id: uuidv4(),
-        lessonData: "20/10/22",
-        lessonHour: "8:00",
-        studentName: "Renann",
-        lessonDescription: "Reforço de matemática"
-      },
-    ]
-  },
-  {
-    day: "Sabádo",
-    lessons: [
-      {
-        id: uuidv4(),
-        lessonData: "20/10/22",
-        lessonHour: "8:00",
-        studentName: "Renann",
-        lessonDescription: "Reforço de matemática"
-      },
-      {
-        id: uuidv4(),
-        lessonData: "20/10/22",
-        lessonHour: "8:00",
-        studentName: "Renann",
-        lessonDescription: "Reforço de matemática"
-      },
-    ]
-  }
-]
+// const weekDays = [
+//   {
+//     day: "Domingo",
+//     lessons: [
+//       {
+//         id: uuidv4(),
+//         lessonData: "20/10/22",
+//         lessonHour: "8:00",
+//         studentName: "Renann",
+//         lessonDescription: "Reforço de matemática"
+//       },
+//       {
+//         id: uuidv4(),
+//         lessonData: "20/10/22",
+//         lessonHour: "8:00",
+//         studentName: "Renann",
+//         lessonDescription: "Reforço de Geografia"
+//       },
+//     ]
+//   },
+//   {
+//     day: "Segunda",
+//     lessons: [
+//       {
+//         id: uuidv4(),
+//         lessonData: "20/10/22",
+//         lessonHour: "8:00",
+//         studentName: "Renann",
+//         lessonDescription: "Reforço de matemática"
+//       },
+//       {
+//         id: uuidv4(),
+//         lessonData: "20/10/22",
+//         lessonHour: "8:00",
+//         studentName: "Andre",
+//         lessonDescription: "Reforço de matemática"
+//       },
+//     ]
+//   },
+//   {
+//     day: "Terça",
+//     lessons: [
+//       {
+//         id: uuidv4(),
+//         lessonData: "20/10/22",
+//         lessonHour: "8:00",
+//         studentName: "Renann",
+//         lessonDescription: "Reforço de matemática"
+//       },
+//       {
+//         id: uuidv4(),
+//         lessonData: "20/10/22",
+//         lessonHour: "8:00",
+//         studentName: "Renann",
+//         lessonDescription: "Reforço de matemática"
+//       },
+//     ]
+//   },
+//   {
+//     day: "quarta",
+//     lessons: [
+//       {
+//         id: uuidv4(),
+//         lessonData: "20/10/22",
+//         lessonHour: "8:00",
+//         studentName: "Renann",
+//         lessonDescription: "Reforço de matemática"
+//       },
+//       {
+//         id: uuidv4(),
+//         lessonData: "20/10/22",
+//         lessonHour: "8:00",
+//         studentName: "Renann",
+//         lessonDescription: "Reforço de matemática"
+//       },
+//     ]
+//   },
+//   {
+//     day: "Quinta",
+//     lessons: [
+//       {
+//         id: uuidv4(),
+//         lessonData: "20/10/22",
+//         lessonHour: "8:00",
+//         studentName: "Renann",
+//         lessonDescription: "Reforço de matemática"
+//       },
+//       {
+//         id: uuidv4(),
+//         lessonData: "20/10/22",
+//         lessonHour: "8:00",
+//         studentName: "Renann",
+//         lessonDescription: "Reforço de matemática"
+//       },
+//     ]
+//   },
+//   {
+//     day: "Sexta",
+//     lessons: [
+//       {
+//         id: uuidv4(),
+//         lessonData: "20/10/22",
+//         lessonHour: "8:00",
+//         studentName: "Renann",
+//         lessonDescription: "Reforço de matemática"
+//       },
+//       {
+//         id: uuidv4(),
+//         lessonData: "20/10/22",
+//         lessonHour: "8:00",
+//         studentName: "Renann",
+//         lessonDescription: "Reforço de matemática"
+//       },
+//     ]
+//   },
+//   {
+//     day: "Sabádo",
+//     lessons: [
+//       {
+//         id: uuidv4(),
+//         lessonData: "20/10/22",
+//         lessonHour: "8:00",
+//         studentName: "Renann",
+//         lessonDescription: "Reforço de matemática"
+//       },
+//       {
+//         id: uuidv4(),
+//         lessonData: "20/10/22",
+//         lessonHour: "8:00",
+//         studentName: "Renann",
+//         lessonDescription: "Reforço de matemática"
+//       },
+//     ]
+//   }
+// ]
 
 export default function MonitorCalendar() {
 
-  const { loggedMonitorData } = useDefaultContext();
+  const navigate = useNavigate();
+
+  const { loggedMonitorData, atualizingMonitor, deletingMonitor } = useDefaultContext();
 
   const [weekLessons, setWeekLessons] = useState<IWeekLessons[]>([] as IWeekLessons[]);
 
@@ -175,16 +178,23 @@ export default function MonitorCalendar() {
     })
 
     setWeekLessons(newWeekLessons);
+    const monitorData: Imonitor = {
+      name: loggedMonitorData.name,
+      senha: loggedMonitorData.senha,
+      id: loggedMonitorData.id,
+      allLessons: newWeekLessons
+    }
+    atualizingMonitor(loggedMonitorData.id, monitorData);
   }
 
-  function handleConfirmLesson(id: string, day: string){
+  function handleConfirmLesson(id: string, day: string) {
     const newWeekLessons = weekLessons.map((weekDay) => {
       if (weekDay.day === day) {
         const newLessons = weekDay.lessons.map((lesson) => {
-          if(lesson.id === id){
+          if (lesson.id === id) {
             return {
               id: lesson.id,
-              lessonData: lesson.lessonData,
+              lessonDate: lesson.lessonDate,
               lessonDescription: lesson.lessonDescription,
               lessonHour: lesson.lessonHour,
               studentName: lesson.studentName,
@@ -204,6 +214,11 @@ export default function MonitorCalendar() {
     setWeekLessons(newWeekLessons);
   }
 
+  function handleDeleteMonitor(){
+    deletingMonitor(loggedMonitorData.id)
+    navigate('/');
+  }
+
   useEffect(() => {
     setWeekLessons(loggedMonitorData.allLessons)
   }, [loggedMonitorData])
@@ -216,11 +231,11 @@ export default function MonitorCalendar() {
             return (
               <SundayColumn key={index}>
                 <Title> {day.day} </Title>
-                {day.lessons.map((lesson) => {
+                {day.lessons && day.lessons.map((lesson) => {
                   return (
                     <LessonsCard>
                       <LessonData>
-                        {lesson.lessonData}
+                        {lesson.lessonDate}
                       </LessonData>
                       <LessonDescription>
                         {lesson.lessonHour} - {lesson.studentName} - {lesson.lessonDescription}
@@ -228,7 +243,7 @@ export default function MonitorCalendar() {
                       <ButtonContainer>
                         <DefaultButton
                           textButton='Confirm'
-                          onClick={()=> handleConfirmLesson(lesson.id, day.day)}
+                          onClick={() => handleConfirmLesson(lesson.id, day.day)}
                           minHeight={"20px"}
                           minWidth={"40px"}
                           fontSize={"10px"}
@@ -250,7 +265,14 @@ export default function MonitorCalendar() {
             )
           })
         }
+          <DefaultButton
+            onClick={handleDeleteMonitor}
+            textButton={"Deletar perfil"}
+            fontSize='30px'
+            backgrounColor='red'
+          />
       </ContainerCard>
     </Container>
   )
 }
+
