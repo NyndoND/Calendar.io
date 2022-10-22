@@ -210,8 +210,17 @@ export default function MonitorCalendar() {
       }
       return weekDay;
     })
+    
+    const monitorData: Imonitor = {
+      name: loggedMonitorData.name,
+      senha: loggedMonitorData.senha,
+      id: loggedMonitorData.id,
+      allLessons: newWeekLessons
+    }
+    atualizingMonitor(loggedMonitorData.id, monitorData);
 
     setWeekLessons(newWeekLessons);
+    alert("Aula confirmada com sucesso, agora todos alunos podem ve-la no calendário")
   }
 
   function handleDeleteMonitor(){

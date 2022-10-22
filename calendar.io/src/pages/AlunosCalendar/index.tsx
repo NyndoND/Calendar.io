@@ -219,6 +219,7 @@ export default function AlunosCalendar() {
       atualizingMonitor(selectedMonitor.id, alteredMonitorLessons);
       setWeekLessons(alteredMonitorLessons.allLessons);
       console.log(alteredMonitorLessons);
+      alert("Aula planejado com sucesso, por favor aguarde o monitor confimar-la")
     }else {
       const newMonitorLessons = weekLessons.map((weekLessons) => {
         if (weekLessons.day == inputWeekDay) {
@@ -237,10 +238,11 @@ export default function AlunosCalendar() {
       atualizingMonitor(allMonitor[0].id, alteredMonitorLessons);
       setWeekLessons(alteredMonitorLessons.allLessons);
       console.log(alteredMonitorLessons);
+      alert("Aula planejada com sucesso, por favor aguarde o monitor confimar-la")
     }
-
-
-    
+    setInputDate("");
+    setInputHour("");
+    setInputLessonDes("");
   }
 
 
@@ -277,7 +279,7 @@ export default function AlunosCalendar() {
                   <Title> {day.day} </Title>
 
                   {day.lessons.map((lesson) => {
-                    if (lesson.status === "confirm") {
+                    if (lesson.status === "confirmed") {
                       return (
                         <LessonsCard>
                           <LessonData>

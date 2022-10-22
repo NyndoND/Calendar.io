@@ -48,7 +48,7 @@ export default function LoginMonitor() {
   async function handleRegisterMonitor() {
 
     if (inputPasswordRegister === inputConfirmPassword) {
-      navigate("/monitor");
+      navigate("/");
       registerMonitor(inputNameRegister, inputPasswordRegister);
       
     } else {

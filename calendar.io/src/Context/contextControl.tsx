@@ -51,6 +51,7 @@ function ContextProvider({ children }: IContextProvider) {
         ...monitorData
       }
     )
+    loadMonitors();
   }
 
   async function registerMonitor(name: string, senha: string) {
